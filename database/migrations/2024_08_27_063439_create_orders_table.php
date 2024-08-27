@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('order_number');
+            $table->integer('parent_id')->nullable();
+            $table->date('order_date');
+            $table->foreignId('program_id')->constrained('programs');
+            $table->foreignId('contact_id')->constrained('contacts');
             $table->timestamps();
         });
     }
