@@ -17,7 +17,6 @@ return new class extends Migration
             $table->integer('parent_id')->nullable();
             $table->date('order_date');
             $table->foreignId('program_id')->constrained('programs');
-            $table->foreignId('contact_id')->constrained('contacts');
             $table->timestamps();
         });
     }
