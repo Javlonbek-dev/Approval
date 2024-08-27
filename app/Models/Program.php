@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Program extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'order_number',
+        'order_date',
+        'program_id',
+        'contract_id'
+    ];
 }
