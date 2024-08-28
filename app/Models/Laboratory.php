@@ -15,6 +15,7 @@ class Laboratory extends Model
         'phone',
         'address',
         'manager',
-        'region_id'
+        'region_id',
+        'company_id'
     ];
 }

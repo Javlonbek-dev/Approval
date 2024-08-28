@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('manager');
             $table->foreignId('region_id')->constrained('regions');
+            $table->foreignId('company_id')->constrained('companies');
             $table->timestamps();
         });
     }

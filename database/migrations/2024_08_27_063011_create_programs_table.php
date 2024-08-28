@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('program_number');
             $table->date('program_date');
+            $table->date('assessment_period');
             $table->foreignId('contract_id')->constrained('contracts')->onDelete('cascade');
             $table->foreignId('status_id')->constrained('statuses')->onDelete('cascade');
             $table->foreignId('company_id')->constrained('companies')->onDelete('cascade');
