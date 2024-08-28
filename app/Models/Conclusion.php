@@ -14,7 +14,6 @@ class Conclusion extends Model
         'number_in',
         'date_out',
         'date_in',
-        'file',
         'act_id'
     ];
 }
