@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('manager');
-            $table->foreignId('region_id')->constrained('regions');
+            $table->foreignId('region_id')->constrained('regions')->onDelete('cascade');
+            $table->foreignId('company_id')->constrained('companies')->onDelete('cascade');
             $table->timestamps();
         });
     }

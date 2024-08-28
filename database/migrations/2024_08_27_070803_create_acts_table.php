@@ -17,7 +17,10 @@ return new class extends Migration
             $table->integer('parent_id');
             $table->date('act_date');
             $table->string('act_number');
+            $table->string('act_files')->nullable();
             $table->foreignId('order_id')->constrained('orders');
+            $table->foreignId('company_id')->constrained('companies');
+            $table->foreignId('status_id')->constrained('statuses');
             $table->timestamps();
         });
     }
