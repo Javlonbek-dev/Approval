@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order_executor', function (Blueprint $table) {
-           $table->foreignId('order_id')->constrained('orders')->onDelete('cascade');
-           $table->foreignId('executor_id')->constrained('executors')->onDelete('cascade');
+        Schema::create('act_executor', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('act_id')->constrained()->onDelete('cascade');
+            $table->foreignId('executor_id')->constrained()->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('order_executor');
+        Schema::dropIfExists('act_executor');
     }
 };
