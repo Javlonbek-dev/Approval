@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('program_executor', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('program_id')->constrained('programs')->onDelete('cascade');
-            $table->foreignId('executor_id')->constrained('executors')->onDelete('cascade');
+            $table->foreignId('program_id')->constrained()->onDelete('cascade');
+            $table->foreignId('executor_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

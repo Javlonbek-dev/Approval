@@ -12,9 +12,9 @@ return new class extends Migration {
     {
         Schema::create('attaches', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('file_id')->nullable()->constrained('files')->onDelete('cascade');
-            $table->foreignId('act_id')->nullable()->constrained('acts')->onDelete('cascade');
-            $table->foreignId('report_id')->nullable()->constrained('reports')->onDelete('cascade');
+            $table->foreignId('file_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('act_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('report_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
