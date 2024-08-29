@@ -11,13 +11,16 @@ class Company extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'parent_id',
         'name',
         'phone',
         'address',
         'stir',
         'dbit',
         'ifut',
-        'manager'
+        'manager',
+        'region_id',
+        'thsht_id'
     ];
 
     public function applications():HasMany
@@ -38,5 +41,10 @@ class Company extends Model
     public function region():BelongsTo
     {
         return $this->belongsTo(Region::class);
+    }
+
+    public function thsht():BelongsTo
+    {
+        return $this->belongsTo(Thsht::class);
     }
 }

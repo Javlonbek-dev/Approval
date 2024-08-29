@@ -9,5 +9,8 @@ class Thsht extends Model
 {
     use HasFactory;
 
+    protected $table = 'thshts';
+
+
     protected $guarded = [];
 }
