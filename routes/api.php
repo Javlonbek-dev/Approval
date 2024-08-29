@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\DBBITController;
+use App\Http\Controllers\IFUTController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\StatusController;
 use Illuminate\Support\Facades\Request;
@@ -12,3 +14,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::apiResource('/status', StatusController::class)->names('user_status');
 Route::apiResource('/company', CompanyController::class)->names('company');
 Route::apiResource('/region', RegionController::class)->names('region');
+Route::apiResource('/dbit', DBBITController::class)->names('dbit');
+Route::apiResource('/ifut', IFUTController::class)->names('ifut');
