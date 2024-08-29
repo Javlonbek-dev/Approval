@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('parent_id')->constrained('companies');
+            $table->integer('parent_id')->nullable();
             $table->string('name');
             $table->string('stir')->unique();
             $table->string('dbit');
