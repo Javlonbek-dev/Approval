@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -16,14 +15,14 @@ return new class extends Migration
             $table->integer('parent_id')->nullable();
             $table->string('name');
             $table->string('stir')->unique();
-            $table->string('dbit');
-            $table->string('ifut');
             $table->string('phone');
             $table->string('email')->nullable();
             $table->string('address');
             $table->string('manager');
-            $table->foreignId('region_id')->constrained('regions');
-            $table->foreignId('thsht_id')->constrained('thshts');
+            $table->foreignId('region_id')->constrained();
+            $table->foreignId('thsht_id')->constrained();
+            $table->foreignId('ifut_id')->constrained();
+            $table->foreignId('dbit_id')->constrained();
             $table->timestamps();
         });
     }
