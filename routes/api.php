@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\DBBITController;
 use App\Http\Controllers\IFUTController;
@@ -18,3 +19,4 @@ Route::apiResource('/region', RegionController::class)->names('region');
 Route::apiResource('/dbit', DBBITController::class)->names('dbit');
 Route::apiResource('/ifut', IFUTController::class)->names('ifut');
 Route::apiResource('/thsht', THSHTController::class)->names('thsht');
+Route::apiResource('/application', ApplicationController::class)->names('application');
