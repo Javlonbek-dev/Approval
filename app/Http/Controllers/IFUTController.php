@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ShortName;
-use App\Http\Resources\IFUTResource;
+use App\Http\Requests\ShortNameRequest;
+use App\Http\Resources\ShortNameResource;
 use App\Models\Ifut;
-use Illuminate\Http\Request;
 
 class IFUTController extends Controller
 {
@@ -16,18 +15,18 @@ class IFUTController extends Controller
 
     public function show(Ifut $ifut)
     {
-        return new IFUTResource($ifut);
+        return new ShortNameResource($ifut);
     }
 
-    public function store(ShortName $request)
+    public function store(ShortNameRequest $request)
     {
-        return new IFUTResource(Ifut::create($request->validated()));
+        return new ShortNameResource(Ifut::create($request->validated()));
     }
 
-    public function update(ShortName $request, Ifut $ifut)
+    public function update(ShortNameRequest $request, Ifut $ifut)
     {
         $ifut->update($request->validated());
-        return new IFUTResource($ifut);
+        return new ShortNameResource($ifut);
     }
 
     public function destroy(Ifut $ifut)
