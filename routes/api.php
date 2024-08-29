@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\RegionController;
 use App\Http\Controllers\StatusController;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
@@ -10,3 +11,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::apiResource('/status', StatusController::class)->names('user_status');
 Route::apiResource('/company', CompanyController::class)->names('company');
+Route::apiResource('/region', RegionController::class)->names('region');
