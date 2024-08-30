@@ -5,9 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
-    /**
-     * Run the migrations.
-     */
+
     public function up(): void
     {
         Schema::create('resolutions', function (Blueprint $table) {
@@ -16,13 +14,11 @@ return new class extends Migration {
             $table->string('resolution_number');
             $table->date('resolution_date');
             $table->foreignId('conclusion_id')->constrained();
+            $table->foreignId('approval_company_id')->constrained();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('resolutions');
