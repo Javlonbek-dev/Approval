@@ -23,6 +23,7 @@ return new class extends Migration {
             $table->foreignId('thsht_id')->constrained();
             $table->foreignId('ifut_id')->constrained();
             $table->foreignId('dbit_id')->constrained();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

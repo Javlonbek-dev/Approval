@@ -13,8 +13,16 @@ class CompanyResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'stir' => $this->stir,
-            'dbit' => $this->dbit,
-            'ifut' => $this->ifut,
+            'dbit' => [
+                'id' => $this->dbit->id,
+                'name_extend' => $this->dbit->name_extend,
+                'code' => $this->dbit->code,
+            ],
+            'ifut' => [
+                'id' => $this->ifut->id,
+                'name_extend' => $this->ifut->name_extend,
+                'code' => $this->ifut->code,
+            ],
             'phone' => $this->phone,
             'email' => $this->email,
             'address' => $this->address,

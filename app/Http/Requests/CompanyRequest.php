@@ -17,8 +17,8 @@ class CompanyRequest extends FormRequest
         return [
             'name' =>['required','string'],
             'stir' => ['required', 'string'],
-            'dbit' => ['required', 'string'],
-            'ifut' => ['required', 'string'],
+            'dbit_id' => ['required', 'integer'],
+            'ifut_id' => ['required', 'integer'],
             'phone' => ['required', 'string'],
             'email' => ['required', 'string'],
             'address' => ['required', 'string'],
