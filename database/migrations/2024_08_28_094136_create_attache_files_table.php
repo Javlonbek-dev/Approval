@@ -10,11 +10,14 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('attaches', function (Blueprint $table) {
+        Schema::create('attaches_files', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('file_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('act_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('report_id')->nullable()->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('application_id')->nullable();
+            $table->string('file_type');
+            $table->string('file');
+            $table->foreign('application_id')->references('id')->on('applications')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -24,6 +27,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('attaches');
+        Schema::dropIfExists('attaches_files');
     }
 };

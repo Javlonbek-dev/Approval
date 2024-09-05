@@ -18,7 +18,9 @@ return new class extends Migration {
             $table->string('phone');
             $table->string('email')->nullable();
             $table->string('address');
+            $table->string('website')->nullable();
             $table->string('manager');
+            $table->string('bank_visits')->unique();
             $table->foreignId('region_id')->constrained();
             $table->foreignId('thsht_id')->constrained();
             $table->foreignId('ifut_id')->constrained();
