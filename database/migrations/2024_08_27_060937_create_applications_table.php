@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('number_out');
             $table->date('date_in');
             $table->date('date_out');
-            $table->string('file');
             $table->timestamps();
         });
     }
