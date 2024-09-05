@@ -12,11 +12,6 @@ class Contract extends Model
 
     protected $guarded = [];
 
-    public function company():BelongsTo
-    {
-        return $this->belongsTo(Company::class);
-    }
-
     public function application():BelongsTo
     {
         return $this->belongsTo(Application::class);
