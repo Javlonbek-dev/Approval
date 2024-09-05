@@ -13,8 +13,13 @@ class Application extends Model
 
     protected $guarded = [];
 
-    public function contract():HasOne
+    public function contract(): HasOne
     {
         return $this->hasOne(Contract::class);
+    }
+
+    public function laboratory(): BelongsTo
+    {
+        return $this->belongsTo(Laboratory::class);
     }
 }

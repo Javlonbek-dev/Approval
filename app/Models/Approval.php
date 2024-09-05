@@ -21,4 +21,9 @@ class Approval extends Model
     {
         return $this->belongsTo(Direction::class);
     }
+
+    public function approval_company(): BelongsTo
+    {
+        return $this->belongsTo(Approval_Company::class);
+    }
 }
