@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Resolution extends Model
 {
@@ -20,5 +21,10 @@ class Resolution extends Model
     public function approval_company(): BelongsTo
     {
         return $this->belongsTo(Approval_Company::class);
+    }
+
+    public function relation_executor():BelongsToMany
+    {
+        return $this->belongsToMany(Executor::class, 'resolution_executor');
     }
 }

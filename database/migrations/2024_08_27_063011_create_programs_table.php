@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('file')->nullable();
             $table->foreignId('contract_id')->constrained('contracts')->onDelete('cascade');
             $table->foreignId('status_id')->constrained('statuses')->onDelete('cascade');
-            $table->foreignId('company_id')->constrained('companies')->onDelete('cascade');
             $table->timestamps();
         });
     }
