@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('number_out');
             $table->date('date_in');
             $table->date('date_out');
-            $table->string('files');
             $table->foreignId('laboratory_id')->constrained('laboratories')->onDelete('cascade');
             $table->foreignId('created_by')->constrained('users')->onDelete('set null');
             $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');

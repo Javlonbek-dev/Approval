@@ -5,15 +5,12 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ApplicationResource\Pages;
 use App\Filament\Resources\ApplicationResource\RelationManagers;
 use App\Models\Application;
-use App\Models\Attach_Files;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Auth;
 
 class ApplicationResource extends Resource
 {
@@ -36,11 +33,7 @@ class ApplicationResource extends Resource
                 Forms\Components\DatePicker::make('date_out')
                     ->required(),
                 Forms\Components\FileUpload::make('files')
-                    ->multiple()
-                    ->disk('public')
-                    ->directory('uploads')
-                    ->required(),
-
+                    ->multiple(),
                 Forms\Components\Select::make('laboratory_id')
                     ->relationship('laboratory', 'name'),
             ]);
@@ -102,5 +95,11 @@ class ApplicationResource extends Resource
             'create' => Pages\CreateApplication::route('/create'),
             'edit' => Pages\EditApplication::route('/{record}/edit'),
         ];
+    }
+
+    public static function beforeSave($record, $data)
+    {
+        $data['created_by'] = Auth::id();
+        return $data;
     }
 }
