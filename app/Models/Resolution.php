@@ -13,7 +13,9 @@ class Resolution extends Model
 
     protected $guarded = [];
 
-    public function conclusion():BelongsTo
+    protected $dates = ['deleted_at'];
+
+    public function conclusion(): BelongsTo
     {
         return $this->belongsTo(Conclusion::class);
     }
@@ -23,7 +25,7 @@ class Resolution extends Model
         return $this->belongsTo(Approval_Company::class);
     }
 
-    public function relation_executor():BelongsToMany
+    public function relation_executor(): BelongsToMany
     {
         return $this->belongsToMany(Executor::class, 'resolution_executor');
     }

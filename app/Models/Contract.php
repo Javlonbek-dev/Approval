@@ -10,14 +10,21 @@ class Contract extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'contract_number',
+        'contract_date',
+        'application_id',
+        'status_id'
+    ];
+    protected $dates = ['deleted_at'];
 
-    public function application():BelongsTo
+
+    public function application(): BelongsTo
     {
         return $this->belongsTo(Application::class);
     }
 
-    public function status():BelongsTo
+    public function status(): BelongsTo
     {
         return $this->belongsTo(Status::class);
     }

@@ -11,7 +11,15 @@ class Act extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'type',
+        'act_date',
+        'act_number',
+        'order_id',
+        'status_id',
+    ];
+
+    protected $dates =['deleted_at'];
 
     public function order(): BelongsTo
     {

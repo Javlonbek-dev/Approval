@@ -19,6 +19,8 @@ class Program extends Model
         'contract_id'
     ];
 
+    protected $datas =['deleted_at'];
+
     public function executors(): BelongsToMany
     {
         return $this->belongsToMany(Executor::class);

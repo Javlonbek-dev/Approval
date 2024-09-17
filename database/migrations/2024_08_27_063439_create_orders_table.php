@@ -17,6 +17,9 @@ return new class extends Migration
             $table->integer('parent_id')->nullable();
             $table->date('order_date');
             $table->foreignId('program_id')->constrained('programs');
+            $table->foreignId('created_by')->constrained('users')->onDelete('set null');
+            $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

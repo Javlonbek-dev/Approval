@@ -18,4 +18,6 @@ class Laboratory extends Model
         'region_id',
         'company_id'
     ];
+
+    protected $dates = ['deleted_at'];
 }

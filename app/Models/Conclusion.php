@@ -20,12 +20,14 @@ class Conclusion extends Model
         'act_id'
     ];
 
-    public function act():BelongsTo
+    protected $dates = ['deleted_at'];
+
+    public function act(): BelongsTo
     {
         return $this->belongsTo(Act::class);
     }
 
-    public function relations():HasMany
+    public function relations(): HasMany
     {
         return $this->hasMany(Relation::class);
     }
