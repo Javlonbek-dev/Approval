@@ -10,7 +10,8 @@ class Attach_Files extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
+    protected $fillable = ['application_id', 'file_type', 'file'];
+
 
     public function application(): BelongsTo
     {

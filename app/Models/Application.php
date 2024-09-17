@@ -12,7 +12,17 @@ class Application extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $casts = [
+        'files' => 'array',
+    ];
+
+    protected $fillable = [
+        'number_in',
+        'number_out',
+        'date_in',
+        'date_out',
+        'files'
+    ];
     protected $dates = ['deleted_at'];
 
 
