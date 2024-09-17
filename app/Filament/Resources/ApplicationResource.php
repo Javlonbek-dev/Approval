@@ -5,12 +5,14 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ApplicationResource\Pages;
 use App\Filament\Resources\ApplicationResource\RelationManagers;
 use App\Models\Application;
+use App\Models\Attach_Files;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ApplicationResource extends Resource
@@ -33,6 +35,14 @@ class ApplicationResource extends Resource
                     ->required(),
                 Forms\Components\DatePicker::make('date_out')
                     ->required(),
+                Forms\Components\FileUpload::make('files')
+                    ->multiple()
+                    ->disk('public')
+                    ->directory('uploads')
+                    ->required(),
+
+                Forms\Components\Select::make('laboratory_id')
+                    ->relationship('laboratory', 'name'),
             ]);
     }
 
@@ -50,6 +60,12 @@ class ApplicationResource extends Resource
                 Tables\Columns\TextColumn::make('date_out')
                     ->date()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('laboratory.name')
+                    ->numeric(),
+                Tables\Columns\TextColumn::make('deleted_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
