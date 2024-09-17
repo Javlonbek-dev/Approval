@@ -10,8 +10,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Auth;
 
 class ApplicationResource extends Resource
 {
@@ -33,6 +32,10 @@ class ApplicationResource extends Resource
                     ->required(),
                 Forms\Components\DatePicker::make('date_out')
                     ->required(),
+                Forms\Components\FileUpload::make('files')
+                    ->multiple(),
+                Forms\Components\Select::make('laboratory_id')
+                    ->relationship('laboratory', 'name'),
             ]);
     }
 
@@ -50,6 +53,12 @@ class ApplicationResource extends Resource
                 Tables\Columns\TextColumn::make('date_out')
                     ->date()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('laboratory.name')
+                    ->numeric(),
+                Tables\Columns\TextColumn::make('deleted_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -86,5 +95,11 @@ class ApplicationResource extends Resource
             'create' => Pages\CreateApplication::route('/create'),
             'edit' => Pages\EditApplication::route('/{record}/edit'),
         ];
+    }
+
+    public static function beforeSave($record, $data)
+    {
+        $data['created_by'] = Auth::id();
+        return $data;
     }
 }

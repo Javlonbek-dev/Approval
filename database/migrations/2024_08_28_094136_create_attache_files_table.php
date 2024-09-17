@@ -10,13 +10,12 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('attaches_files', function (Blueprint $table) {
+        Schema::create('attach_files', function (Blueprint $table) {
             $table->id();
             $table->foreignId('act_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('report_id')->nullable()->constrained()->onDelete('cascade');
             $table->unsignedBigInteger('application_id')->nullable();
-            $table->string('file_type');
-            $table->string('file');
+            $table->json('file');
             $table->foreign('application_id')->references('id')->on('applications')->onDelete('cascade');
             $table->timestamps();
         });
