@@ -12,6 +12,8 @@ class Approval extends Model
 
     protected $guarded = [];
 
+    protected $dates = ['deleted_at'];
+
     public function ownership(): BelongsTo
     {
         return $this->belongsTo(Ownership::class);

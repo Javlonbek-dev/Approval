@@ -18,6 +18,9 @@ return new class extends Migration {
             $table->date('date_in');
             $table->foreignId('act_id')->constrained()->onDelete('cascade');
             $table->foreignId('executor_id')->constrained()->onDelete('cascade');
+            $table->foreignId('created_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

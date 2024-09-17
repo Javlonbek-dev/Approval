@@ -15,6 +15,9 @@ return new class extends Migration {
             $table->date('resolution_date');
             $table->foreignId('conclusion_id')->constrained();
             $table->foreignId('approval_company_id')->constrained();
+            $table->foreignId('created_by')->constrained('users')->onDelete('set null');
+            $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -12,8 +12,13 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'order_number',
+        'order_date',
+        'program_id'
+    ];
 
+    protected $dates =['deleted_at'];
 
     public function executors(): BelongsToMany
     {
