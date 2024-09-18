@@ -14,13 +14,15 @@ return new class extends Migration
         Schema::create('acts', function (Blueprint $table) {
             $table->id();
             $table->string('type');
-            $table->integer('parent_id');
+            $table->integer('parent_id')->nullable();
             $table->date('act_date');
             $table->string('act_number');
             $table->string('act_files')->nullable();
             $table->foreignId('order_id')->constrained('orders');
-            $table->foreignId('company_id')->constrained('companies');
             $table->foreignId('status_id')->constrained('statuses');
+            $table->foreignId('created_by')->constrained('users')->onDelete('set null');
+            $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

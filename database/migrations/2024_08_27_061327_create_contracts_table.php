@@ -18,6 +18,9 @@ return new class extends Migration
             $table->integer('parent_id')->nullable();
             $table->foreignId('application_id')->constrained('applications')->onDelete('cascade');
             $table->foreignId('status_id')->constrained('statuses')->onDelete('cascade');
+            $table->foreignId('created_by')->constrained('users')->onDelete('set null');
+            $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

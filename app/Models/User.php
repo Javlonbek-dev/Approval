@@ -4,7 +4,9 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
@@ -20,7 +22,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'firstname',
         'email',
         'password',
     ];
@@ -48,7 +50,7 @@ class User extends Authenticatable
         ];
     }
 
-    public function roles():BelongsToMany
+    public function roles(): BelongsToMany
     {
         return $this->belongsToMany(Role::class);
     }
@@ -66,5 +68,20 @@ class User extends Authenticatable
             }
         }
         return false;
+    }
+
+    public function user_status(): BelongsTo
+    {
+        return $this->belongsTo(UserStatus::class);
+    }
+
+    public function executor(): HasMany
+    {
+        return $this->hasMany(Executor::class);
+    }
+
+    public function orders(): BelongsToMany
+    {
+        return $this->belongsToMany(Order::class, 'order_executor');
     }
 }

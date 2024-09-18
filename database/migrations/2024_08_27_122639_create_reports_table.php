@@ -16,8 +16,11 @@ return new class extends Migration {
             $table->string('number_in');
             $table->date('date_out');
             $table->date('date_in');
-            $table->foreignId('act_id')->constrained('act')->onDelete('cascade');
-            $table->foreignId('executor_id')->constrained('executors')->onDelete('cascade');
+            $table->foreignId('act_id')->constrained()->onDelete('cascade');
+            $table->foreignId('executor_id')->constrained()->onDelete('cascade');
+            $table->foreignId('created_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
