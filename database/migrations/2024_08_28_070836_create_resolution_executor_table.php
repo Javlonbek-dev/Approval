@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('resolution_executor', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('resolution_id')->constrained()->onDelete('cascade');
-            $table->foreignId('executor_id')->constrained()->onDelete('cascade');
+            $table->foreignId('resolution_id')->constrained('resolutions')->onDelete('cascade');
+            $table->foreignId('executor_id')->constrained('executors')->onDelete('cascade');
             $table->timestamps();
         });
     }

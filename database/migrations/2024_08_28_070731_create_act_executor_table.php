@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('act_executor', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('act_id')->constrained()->onDelete('cascade');
-            $table->foreignId('executor_id')->constrained()->onDelete('cascade');
+            $table->foreignId('act_id')->constrained('acts')->onDelete('cascade');
+            $table->foreignId('executor_id')->constrained('executors')->onDelete('cascade');
             $table->timestamps();
         });
     }
