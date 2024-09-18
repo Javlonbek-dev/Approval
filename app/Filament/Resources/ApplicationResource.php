@@ -96,10 +96,4 @@ class ApplicationResource extends Resource
             'edit' => Pages\EditApplication::route('/{record}/edit'),
         ];
     }
-
-    public static function beforeSave($record, $data)
-    {
-        $data['created_by'] = Auth::id();
-        return $data;
-    }
 }
