@@ -15,8 +15,11 @@ return new class extends Migration {
             $table->foreignId('act_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('report_id')->nullable()->constrained()->onDelete('cascade');
             $table->unsignedBigInteger('application_id')->nullable();
+            $table->unsignedBigInteger('program_id')->nullable();
             $table->json('file');
-            $table->foreign('application_id')->references('id')->on('applications')->onDelete('cascade');
+            $table->foreign('application_id')->references('id')->on('applications');
+            $table->foreign('program_id')->references('id')->on('programs');
+
             $table->timestamps();
         });
     }

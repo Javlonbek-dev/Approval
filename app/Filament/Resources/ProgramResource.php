@@ -2,18 +2,18 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ContractResource\Pages;
-use App\Filament\Resources\ContractResource\RelationManagers;
-use App\Models\Contract;
+use App\Filament\Resources\ProgramResource\Pages;
+use App\Filament\Resources\ProgramResource\RelationManagers;
+use App\Models\Program;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
-class ContractResource extends Resource
+class ProgramResource extends Resource
 {
-    protected static ?string $model = Contract::class;
+    protected static ?string $model = Program::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -21,13 +21,17 @@ class ContractResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('contract_number')
+                Forms\Components\TextInput::make('program_number')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\DatePicker::make('contract_date')
+                Forms\Components\DatePicker::make('program_date')
                     ->required(),
-                Forms\Components\Select::make('application_id')
-                    ->relationship('application', 'number_out')
+                Forms\Components\DatePicker::make('assessment_period')
+                    ->required(),
+                Forms\Components\FileUpload::make('files')
+                    ->multiple(),
+                Forms\Components\Select::make('contract_id')
+                    ->relationship('contract', 'contract_number')
                     ->required(),
                 Forms\Components\Select::make('status_id')
                     ->relationship('status', 'name')
@@ -39,12 +43,17 @@ class ContractResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('contract_number')
+                Tables\Columns\TextColumn::make('program_number')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('contract_date')
+                Tables\Columns\TextColumn::make('program_date')
                     ->date()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('application.number_out')
+                Tables\Columns\TextColumn::make('assessment_period')
+                    ->date()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('file')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('contract.id')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('status.name')
@@ -92,9 +101,9 @@ class ContractResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListContracts::route('/'),
-            'create' => Pages\CreateContract::route('/create'),
-            'edit' => Pages\EditContract::route('/{record}/edit'),
+            'index' => Pages\ListPrograms::route('/'),
+            'create' => Pages\CreateProgram::route('/create'),
+            'edit' => Pages\EditProgram::route('/{record}/edit'),
         ];
     }
 }
