@@ -7,19 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Program extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'order_number',
-        'order_date',
-        'program_id',
-        'contract_id'
+        'program_number',
+        'program_date',
+        'assessment_period',
+        'contract_id',
+        'created_by',
+        'updated_by',
     ];
 
-    protected $datas =['deleted_at'];
+    protected $datas = ['deleted_at'];
 
     public function executors(): BelongsToMany
     {
