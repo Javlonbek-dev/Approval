@@ -17,7 +17,8 @@ class LaboratoryResource extends Resource
 {
     protected static ?string $model = Laboratory::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+//    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = "Company Group";
 
     public static function form(Form $form): Form
     {

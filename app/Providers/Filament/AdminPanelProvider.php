@@ -38,6 +38,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->navigationGroups([
                 NavigationGroup::make('Code Group')->icon('heroicon-o-rectangle-stack'),
+                NavigationGroup::make('Company Group')->icon('heroicon-o-rectangle-stack'),
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
