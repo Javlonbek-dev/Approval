@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->string('resolution_number');
             $table->date('resolution_date');
             $table->foreignId('conclusion_id')->constrained();
-            $table->foreignId('approval_company_id')->constrained();
+            $table->foreignId('approval_company_id')->constrained('approval_companies');
             $table->foreignId('created_by')->constrained('users')->onDelete('set null');
             $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
             $table->softDeletes();

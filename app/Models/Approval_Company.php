@@ -9,5 +9,7 @@ class Approval_Company extends Model
 {
     use HasFactory;
 
+    protected $table = 'approval_companies';
+
     protected $guarded = [];
 }
