@@ -17,7 +17,6 @@ return new class extends Migration
             $table->integer('parent_id')->nullable();
             $table->date('act_date');
             $table->string('act_number');
-            $table->string('act_files')->nullable();
             $table->foreignId('order_id')->constrained('orders');
             $table->foreignId('status_id')->constrained('statuses');
             $table->foreignId('created_by')->constrained('users')->onDelete('set null');
