@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Filament\Resources\ProgramResource\Pages;
+namespace App\Filament\Resources\ActResource\Pages;
 
-use App\Filament\Resources\ProgramResource;
+use App\Filament\Resources\ActResource;
+use App\Models\Act;
 use App\Models\Attach_Files;
-use App\Models\Program;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
-class CreateProgram extends CreateRecord
+class CreateAct extends CreateRecord
 {
-    protected static string $resource = ProgramResource::class;
+    protected static string $resource = ActResource::class;
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
@@ -24,19 +24,19 @@ class CreateProgram extends CreateRecord
         $this->saveAttachFiles($this->record);
     }
 
-    protected function saveAttachFiles(Program $program): void
+    protected function saveAttachFiles(Act $act)
     {
         $files = $this->data['files'] ?? [];
 
         if (!empty($files)) {
-            $fileFolder = 'programs/' . $program->id;
+            $actFolder = 'acts/' . $act->id;
 
-            Storage::disk('public')->makeDirectory($fileFolder);
+            Storage::disk('public')->makeDirectory($actFolder);
 
             $fileDataArray = [];
 
             foreach ($files as $filePath) {
-                $newFilePath = $fileFolder . '/' . basename($filePath);
+                $newFilePath = $actFolder . '/' . basename($filePath);
 
                 Storage::disk('public')->move($filePath, $newFilePath);
 
@@ -46,7 +46,7 @@ class CreateProgram extends CreateRecord
             }
 
             Attach_Files::create([
-                'program_id' => $program->id,
+                'act_id' => $act->id,
                 'file' => json_encode($fileDataArray),
             ]);
         } else {
