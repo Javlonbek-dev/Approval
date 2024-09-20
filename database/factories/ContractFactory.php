@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Application;
+use App\Models\Status;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,15 +11,15 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ContractFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            //
+            'contract_number' => $this->faker->unique()->randomNumber(),
+            'contract_date' => $this->faker->date(),
+            'application_id' => $this->faker->randomElement(Application::all()->pluck('id')->toArray()),
+            'status_id' => $this->faker->randomElement(Status::all()->pluck('id')->toArray()),
+            'created_by' => 1,
+            'updated_by' => 1,
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Order;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,10 @@ class ActFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'type'=>$this->faker->word(),
+            'act_date'=>$this->faker->date(),
+            'act_number'=>$this->faker->randomNumber(),
+            'order_id'=>Order::factory(),
         ];
     }
 }
