@@ -13,19 +13,26 @@ return new class extends Migration
     {
         Schema::create('approvals', function (Blueprint $table) {
             $table->id();
-            $table->integer('parent_id');
-            $table->string('register_number');
+            $table->integer('parent_id')->nullable();
+            $table->string('register_number')->unique();
             $table->date('accreditation_date');
-            $table->date('validity_date');
-            $table->date('reissue_date');
+            $table->date('validation_date');
+            $table->date('reissue_date')->nullable();
             $table->boolean('is_reissued_date');
             $table->string('full_name_supervisor')->nullable();
-            $table->date('status_date')->nullable();
+            $table->boolean('is_fact_address');
+            $table->string('phone_ao')->nullable();
+            $table->string('email_ao')->nullable();
+            $table->date('status_date');
             $table->string('file_oblast');
             $table->boolean('is_public')->nullable();
+            $table->boolean('is_file_oblast')->nullable();
             $table->string('area');
             $table->foreignId('owner_ship_id')->constrained();
+            $table->foreignId('company_id')->constrained();
+            $table->foreignId('laboratory_id')->constrained();
             $table->foreignId('direction_id')->constrained();
+            $table->foreignId('status_id')->nullable()->constrained()->onDelete('set null');
             $table->foreignId('approval_company_id')->constrained();
             $table->foreignId('created_by')->constrained('users')->onDelete('set null');
             $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');

@@ -47,9 +47,19 @@ class ContractResource extends Resource
                 Tables\Columns\TextColumn::make('application.number_out')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('status.name')
-                    ->numeric()
-                    ->sortable(),
+                Tables\Columns\IconColumn::make('status.name')
+                    ->icons([
+                        'heroicon-o-check-circle' => 'active',
+                        'heroicon-o-x-circle' => 'inactive',
+                        'heroicon-o-exclamation-circle' => 'suspended',
+                        'heroicon-o-arrow-path' => 'extended',
+                    ])
+                    ->colors([
+                        'success' => 'active',
+                        'danger' => 'inactive',
+                        'warning' => 'suspended',
+                        'secondary' => 'extended'
+                    ]),
                 Tables\Columns\TextColumn::make('created_by')
                     ->numeric()
                     ->sortable(),

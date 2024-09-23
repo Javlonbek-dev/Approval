@@ -13,13 +13,18 @@ class Executor extends Model
 
     protected $fillable = ['user_id', 'execution_id'];
 
-    public function programs():BelongsToMany
+    public function programs(): BelongsToMany
     {
         return $this->belongsToMany(Program::class);
     }
 
-    public function execution():BelongsTo
+    public function execution(): BelongsTo
     {
         return $this->belongsTo(Execution::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

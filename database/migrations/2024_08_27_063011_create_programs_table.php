@@ -17,7 +17,7 @@ return new class extends Migration
             $table->date('program_date');
             $table->date('assessment_period');
             $table->foreignId('contract_id')->constrained('contracts')->onDelete('cascade');
-            $table->foreignId('status_id')->constrained('statuses')->onDelete('cascade');
+            $table->foreignId('status_id')->nullable()->constrained('statuses')->onDelete('set null');
             $table->foreignId('created_by')->constrained('users')->onDelete('set null');
             $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
             $table->softDeletes();

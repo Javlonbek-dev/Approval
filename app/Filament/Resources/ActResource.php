@@ -10,8 +10,6 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ActResource extends Resource
 {
@@ -53,14 +51,24 @@ class ActResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('act_number')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('act_files')
+                Tables\Columns\TextColumn::make('attach_files.file')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('order.order_number')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('status.name')
-                    ->numeric()
-                    ->sortable(),
+                Tables\Columns\IconColumn::make('status.name')
+                    ->icons([
+                        'heroicon-o-check-circle' => 'active',      // Green checkmark for 'active'
+                        'heroicon-o-x-circle' => 'inactive',        // Red cross for 'inactive'
+                        'heroicon-o-exclamation-circle' => 'suspended', // Warning icon for 'suspended'
+                        'heroicon-o-refresh' => 'extended',         // Circular arrow for 'extended'
+                    ])
+                    ->colors([
+                        'success' => 'active',        // Green for 'active'
+                        'danger' => 'inactive',       // Red for 'inactive'
+                        'warning' => 'suspended',     // Yellow for 'suspended'
+                        'secondary' => 'extended'     // Gray for 'extended'
+                    ]),
                 Tables\Columns\TextColumn::make('created_by')
                     ->numeric()
                     ->sortable(),
