@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('order_number');
             $table->integer('parent_id')->nullable();
             $table->date('order_date');
-            $table->foreignId('program_id')->constrained('programs');
+            $table->foreignId('program_id')->nullable()->constrained('programs')->onDelete('set null');
             $table->foreignId('created_by')->constrained('users')->onDelete('set null');
             $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
             $table->softDeletes();

@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Ownership extends Model
 {
     use HasFactory;
+
+    protected $table = 'owner_ships';
+
+    protected $fillable = [
+        'name',
+    ];
 }

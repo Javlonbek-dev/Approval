@@ -11,6 +11,7 @@ class ThshtFactory extends Factory
     {
         return [
             'name_extend'=>$this->faker->word(),
+            'short_name'=>$this->faker->word(),
             'code'=>$this->faker->numerify('####'),
         ];
     }

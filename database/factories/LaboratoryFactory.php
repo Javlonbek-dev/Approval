@@ -13,6 +13,7 @@ class LaboratoryFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
+            'type' => $this->faker->word(),
             'email' => $this->faker->unique()->safeEmail(),
             'phone' => $this->faker->phoneNumber(),
             'address' => $this->faker->address(),

@@ -10,7 +10,7 @@ return new class extends Migration {
     {
         Schema::create('resolutions', function (Blueprint $table) {
             $table->id();
-            $table->integer('parent_id');
+            $table->integer('parent_id')->nullable();
             $table->string('resolution_number');
             $table->date('resolution_date');
             $table->foreignId('conclusion_id')->constrained();
