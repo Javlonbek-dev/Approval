@@ -51,12 +51,14 @@ class ActResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('act_number')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('attach_files.file')
-                    ->searchable(),
+//                Tables\Columns\TextColumn::make('attach_files.file')
+//                    ->searchable(),
                 Tables\Columns\TextColumn::make('order.order_number')
                     ->numeric()
+                    ->label('Order Number')
                     ->sortable(),
-                Tables\Columns\IconColumn::make('status.name')
+                Tables\Columns\TextColumn::make('status.name')
+                    ->badge()
                     ->icons([
                         'heroicon-o-check-circle' => 'active',      // Green checkmark for 'active'
                         'heroicon-o-x-circle' => 'inactive',        // Red cross for 'inactive'
