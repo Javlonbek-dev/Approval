@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\ActResource\Pages;
 
 use App\Filament\Resources\ActResource;
-use App\OrderDetailStatus;
 use Filament\Actions;
 use Filament\Resources\Components\Tab;
 use Filament\Resources\Pages\ListRecords;
@@ -23,19 +22,36 @@ class ListActs extends ListRecords
     {
         return [
             'all' => Tab::make('All Orders Details'),
-            'approved' => Tab::make('Approved')
+
+            'active' => Tab::make('Active')
                 ->modifyQueryUsing(function ($query) {
-                    return $query->where('status', );
+                    return $query->whereHas('status', function ($query) {
+                        $query->where('name', 'active');
+                    });
                 }),
-            'rejected' => Tab::make('Rejected')
+
+            'inactive' => Tab::make('Inactive')
                 ->modifyQueryUsing(function ($query) {
-                    return $query->where('status', );
+                    return $query->whereHas('status', function ($query) {
+                        $query->where('name', 'inactive');
+                    });
                 }),
-            'submitted' => Tab::make('Submitted')
+
+            'suspended' => Tab::make('Suspended')
                 ->modifyQueryUsing(function ($query) {
-                    return $query->where('status', );
-                })
+                    return $query->whereHas('status', function ($query) {
+                        $query->where('name', 'suspended');
+                    });
+                }),
+
+            'extended' => Tab::make('Extended')
+                ->modifyQueryUsing(function ($query) {
+                    return $query->whereHas('status', function ($query) {
+                        $query->where('name', 'extended');
+                    });
+                }),
         ];
     }
+
 
 }
