@@ -7,6 +7,9 @@ use App\Filament\Resources\ContractResource\RelationManagers;
 use App\Models\Contract;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -26,6 +29,12 @@ class ContractResource extends Resource
                     ->maxLength(255),
                 Forms\Components\DatePicker::make('contract_date')
                     ->required(),
+                Forms\Components\TextInput::make('employees_count')
+                    ->required()
+                    ->numeric(),
+                Forms\Components\TextInput::make('days_count')
+                    ->required()
+                    ->numeric(),
                 Forms\Components\Select::make('application_id')
                     ->relationship('application', 'number_out')
                     ->required(),
@@ -44,9 +53,17 @@ class ContractResource extends Resource
                 Tables\Columns\TextColumn::make('contract_date')
                     ->date()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('employees_count')
+                    ->numeric(),
+                Tables\Columns\TextColumn::make('days_count')
+                    ->numeric(),
                 Tables\Columns\TextColumn::make('application.number_out')
                     ->numeric()
+                    ->label('Application Number')
                     ->sortable(),
+                Tables\Columns\TextColumn::make('application.approval_count')
+                    ->numeric()
+                    ->label('Approval Count'),
                 Tables\Columns\TextColumn::make('status.name')
                     ->badge()
                     ->icons([
@@ -79,6 +96,7 @@ class ContractResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make()
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -94,11 +112,32 @@ class ContractResource extends Resource
         ];
     }
 
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                Section::make('Contract information')
+                    ->columns(1)
+                    ->schema([
+                        TextEntry::make('contract_number')
+                            ->label('Contract Number'),
+                        TextEntry::make('contract_date')
+                            ->label('Contract Date'),
+                        TextEntry::make('employees_count')
+                            ->label('Employees Count'),
+                        TextEntry::make('days_count')
+                            ->label('Days Count'),
+                    ])
+            ]);
+    }
+
+
     public static function getPages(): array
     {
         return [
             'index' => Pages\ListContracts::route('/'),
             'create' => Pages\CreateContract::route('/create'),
+            'view' => Pages\ViewContract::route('/{record}'),
             'edit' => Pages\EditContract::route('/{record}/edit'),
         ];
     }

@@ -83,13 +83,13 @@ class ApprovalResource extends Resource
                 Tables\Columns\TextColumn::make('register_number')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('accreditation_date')
-                    ->date('d.m.Y')
+                    ->date()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('validation_date')
-                    ->date('d.m.Y')
+                    ->date()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('reissue_date')
-                    ->date('d.m.Y')
+                    ->date()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('decision_number')
                     ->sortable(),

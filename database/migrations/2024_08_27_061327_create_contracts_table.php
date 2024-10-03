@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('contract_number');
             $table->date('contract_date');
             $table->integer('parent_id')->nullable();
+            $table->integer('employees_count')->nullable();
+            $table->integer('days_count');
             $table->foreignId('application_id')->constrained('applications')->onDelete('cascade');
             $table->foreignId('status_id')->constrained('statuses')->onDelete('cascade');
             $table->foreignId('created_by')->constrained('users')->onDelete('set null');

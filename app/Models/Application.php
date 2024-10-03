@@ -19,6 +19,7 @@ class Application extends Model
         'number_out',
         'date_in',
         'date_out',
+        'approval_count',
         'created_by',
         'updated_by',
     ];

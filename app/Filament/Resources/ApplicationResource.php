@@ -34,6 +34,9 @@ class ApplicationResource extends Resource
                     ->required(),
                 Forms\Components\DatePicker::make('date_out')
                     ->required(),
+                Forms\Components\TextInput::make('approval_count')
+                    ->required()
+                    ->numeric(),
                 Forms\Components\FileUpload::make('files')
                     ->multiple(),
                 Forms\Components\Select::make('laboratory_id')
@@ -55,6 +58,8 @@ class ApplicationResource extends Resource
                 Tables\Columns\TextColumn::make('date_out')
                     ->date()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('approval_count')
+                    ->numeric(),
                 Tables\Columns\TextColumn::make('laboratory.name')
                     ->numeric(),
                 Tables\Columns\TextColumn::make('deleted_at')
