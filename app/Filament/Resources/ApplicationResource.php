@@ -7,10 +7,12 @@ use App\Filament\Resources\ApplicationResource\RelationManagers;
 use App\Models\Application;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Support\Facades\Auth;
 
 class ApplicationResource extends Resource
 {
@@ -73,6 +75,7 @@ class ApplicationResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -88,12 +91,67 @@ class ApplicationResource extends Resource
         ];
     }
 
+    public static function infolist(Infolist $infolist): Infolist
+    {
+        return $infolist
+            ->schema([
+                Section::make('Company information')
+                    ->columns(1)
+                    ->schema([
+                        TextEntry::make('laboratory.company.name')
+                            ->label('Company Name'),
+                        TextEntry::make('laboratory.company.address')
+                            ->label('Company Address'),
+                        TextEntry::make('laboratory.company.phone')
+                            ->label('Company Phone'),
+                        TextEntry::make('laboratory.company.email')
+                            ->label('Company Email'),
+                        TextEntry::make('laboratory.company.bank_visits')
+                            ->label('Company Bank Visits'),
+                        TextEntry::make('laboratory.company.stir')
+                            ->label('Inn'),
+                        TextEntry::make('laboratory.company.manager')
+                            ->label('Manager'),
+                        TextEntry::make('laboratory.company.manager_phone')
+                            ->label('Manager Phone Number')
+                    ]),
+                Section::make('Laboratory information')
+                    ->columns(1)
+                    ->schema([
+                        TextEntry::make('laboratory.name')
+                            ->label('Laboratory Name'),
+                        TextEntry::make('laboratory.address')
+                            ->label('Laboratory Address'),
+                        TextEntry::make('laboratory.phone')
+                            ->label('Laboratory Phone'),
+                        TextEntry::make('laboratory.email')
+                            ->label('Laboratory Email'),
+                        TextEntry::make('laboratory.manager')
+                            ->label('Laboratory Manager'),
+                    ]),
+                Section::make('Application information')
+                    ->columns(1)
+                    ->schema([
+                        TextEntry::make('number_in')
+                            ->label('Number In'),
+                        TextEntry::make('number_out')
+                            ->label('Number Out'),
+                        TextEntry::make('date_in')
+                            ->label('Date In'),
+                        TextEntry::make('date_out')
+                            ->label('Date Out'),
+                    ])
+            ]);
+    }
+
+
     public static function getPages(): array
     {
         return [
             'index' => Pages\ListApplications::route('/'),
             'create' => Pages\CreateApplication::route('/create'),
             'edit' => Pages\EditApplication::route('/{record}/edit'),
+            'view' => Pages\ViewApplication::route('/{record}'),
         ];
     }
 }

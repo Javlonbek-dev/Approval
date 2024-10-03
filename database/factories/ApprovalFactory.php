@@ -29,6 +29,7 @@ class ApprovalFactory extends Factory
             'is_public' => $this->faker->boolean(),
             'is_file_oblast' => $this->faker->boolean(),
             'area' => 'ml' . $this->faker->unique()->numerify('####'),
+            'decision_number' => $this->faker->randomNumber(),
             'owner_ship_id' => $this->faker->randomElement(OwnerShip::pluck('id')->toArray()),
             'company_id' => $this->faker->randomElement(Company::pluck('id')->toArray()),
             'laboratory_id' => $this->faker->randomElement(Laboratory::pluck('id')->toArray()),

@@ -10,8 +10,6 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ApprovalResource extends Resource
 {
@@ -49,6 +47,9 @@ class ApprovalResource extends Resource
                 Forms\Components\TextInput::make('area')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('decision_number')
+                    ->required()
+                    ->unique(),
                 Forms\Components\Select::make('owner_ship_id')
                     ->relationship('ownerShip', 'id')
                     ->required(),
@@ -89,6 +90,8 @@ class ApprovalResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('reissue_date')
                     ->date('d.m.Y')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('decision_number')
                     ->sortable(),
                 Tables\Columns\IconColumn::make('is_reissued_date')
                     ->boolean(),
