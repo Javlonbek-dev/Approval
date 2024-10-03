@@ -28,6 +28,7 @@ return new class extends Migration
             $table->boolean('is_public')->nullable();
             $table->boolean('is_file_oblast')->nullable();
             $table->string('area');
+            $table->string('decision_number')->unique();
             $table->foreignId('owner_ship_id')->constrained();
             $table->foreignId('company_id')->constrained();
             $table->foreignId('laboratory_id')->constrained();
