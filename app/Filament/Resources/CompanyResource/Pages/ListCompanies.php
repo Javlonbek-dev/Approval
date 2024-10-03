@@ -8,7 +8,6 @@ use Filament\Resources\Pages\ListRecords;
 
 class ListCompanies extends ListRecords
 {
-    use ListRecords\Concerns\Translatable;
 
     protected static string $resource = CompanyResource::class;
 
