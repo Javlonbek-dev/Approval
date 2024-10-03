@@ -15,6 +15,7 @@ class ApplicationFactory extends Factory
             'number_out' => $this->faker->numberBetween(1, 100),
             'date_in' => $this->faker->date(),
             'date_out' => $this->faker->date(),
+            'approval_count'=> $this->faker->numberBetween(1, 110),
             'laboratory_id' => $this->faker->randomElement(Laboratory::all()->pluck('id')->toArray()),
             'created_by' => 1,
             'updated_by' => 1,
