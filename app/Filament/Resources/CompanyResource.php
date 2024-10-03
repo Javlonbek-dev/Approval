@@ -7,16 +7,19 @@ use App\Filament\Resources\CompanyResource\RelationManagers;
 use App\Models\Company;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
 class CompanyResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = Company::class;
 
-//    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?string $navigationGroup = "Company Group";
+
     public static function form(Form $form): Form
     {
         return $form
@@ -107,6 +110,7 @@ class CompanyResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+//                Tables\Actions\LocaleSwitcher::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

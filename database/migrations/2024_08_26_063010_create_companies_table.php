@@ -20,6 +20,7 @@ return new class extends Migration {
             $table->string('address');
             $table->string('website')->nullable();
             $table->string('manager');
+            $table->string('manager_phone');
             $table->string('bank_visits')->unique();
             $table->foreignId('region_id')->constrained();
             $table->foreignId('thsht_id')->constrained();

@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Translatable\HasTranslations;
 
 class Company extends Model
 {
-    use HasFactory;
-    use SoftDeletes;
+    use HasFactory, SoftDeletes, HasTranslations;
 
     protected $fillable = [
         'parent_id',
@@ -26,6 +26,11 @@ class Company extends Model
         'thsht_id'
     ];
 
+    public array $translatable = [
+        'name',
+        'address',
+        'manager',
+    ];
     protected $dates = ['deleted_at'];
 
     public function applications(): HasMany

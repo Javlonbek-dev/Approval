@@ -28,6 +28,7 @@ class CompanyFactory extends Factory
             'stir' => $this->faker->numerify('############'),
             'website' => $this->faker->url(),
             'manager' => $this->faker->name(),
+            'manager_phone' => $this->faker->phoneNumber(),
             'bank_visits' => $this->faker->numerify('##############'),
             'region_id' => $this->faker->randomElement(Region::all()->pluck('id')->toArray()),
             'thsht_id' => $this->faker->randomElement(Thsht::all()->pluck('id')->toArray()),
