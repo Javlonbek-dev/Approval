@@ -7,8 +7,10 @@ use App\Filament\Resources\ContractResource\RelationManagers;
 use App\Models\Contract;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\Actions\Action;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Components\View;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -97,6 +99,7 @@ class ContractResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\ViewAction::make()
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -127,7 +130,8 @@ class ContractResource extends Resource
                             ->label('Employees Count'),
                         TextEntry::make('days_count')
                             ->label('Days Count'),
-                    ])
+
+                    ]),
             ]);
     }
 

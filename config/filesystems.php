@@ -44,6 +44,13 @@ return [
             'throw' => false,
         ],
 
+        'custom_storage' => [
+            'driver' => 'local',
+            'root' => base_path('public_html'),
+            'url' => env('APP_URL') . '/public_html',
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -71,6 +78,7 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        base_path('public_html') => base_path('public'),
     ],
 
 ];
