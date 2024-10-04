@@ -35,7 +35,7 @@ return new class extends Migration
             $table->foreignId('direction_id')->constrained();
             $table->foreignId('status_id')->nullable()->constrained()->onDelete('set null');
             $table->foreignId('approval_company_id')->constrained();
-            $table->foreignId('created_by')->constrained('users')->onDelete('set null');
+            $table->foreignId('created_by')->nullable()->constrained('users')->onDelete('set null');
             $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
             $table->softDeletes();
             $table->timestamps();

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('act_number');
             $table->foreignId('order_id')->constrained('orders');
             $table->foreignId('status_id')->nullable()->constrained('statuses')->onDelete('set null');
-            $table->foreignId('created_by')->constrained('users')->onDelete('restrict');
+            $table->foreignId('created_by')->nullable()->constrained('users')->onDelete('restrict');
             $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
             $table->softDeletes();
             $table->timestamps();
