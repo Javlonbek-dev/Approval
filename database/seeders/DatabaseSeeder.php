@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             CompanySeeder::class,
             LaboratorySeeder::class,
             ApplicationSeeder::class,
+//            CalculateSeeder::class,
             ContractSeeder::class,
             ProgramSeeder::class,
             OrderSeeder::class,

@@ -33,4 +33,9 @@ class Contract extends Model
     {
         return $this->belongsTo(Status::class);
     }
+
+    public function calculate(): BelongsTo
+    {
+        return $this->belongsTo(Calculate::class, 'calculate_id', 'id');
+    }
 }
