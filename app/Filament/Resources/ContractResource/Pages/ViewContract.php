@@ -13,8 +13,9 @@ class ViewContract extends ViewRecord
     protected function getHeaderActions(): array
     {
         return [
-            Action::make('dowload')
-                ->button()
+            Action::make('download_contract')
+                ->label('Download Contract')
+                ->url(fn ($record): string => route('contract-file', ['id' => $record->id]))
         ];
     }
 }

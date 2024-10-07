@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool)env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,18 +55,17 @@ return [
     */
 
     'providers' => ServiceProvider::defaultProviders()->merge([
+        /* Application Service Providers...
+         */
+        Barryvdh\DomPDF\ServiceProvider::class,
         /*
          * Package Service Providers...
          */
 
-        /*
-         * Application Service Providers...
-         */
         App\Providers\AppServiceProvider::class,
-         App\Providers\BroadcastServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
     ])->toArray(),
-
 
 
     'url' => env('APP_URL', 'http://localhost'),
@@ -140,4 +139,7 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'aliases' => [
+        'PDF' => Barryvdh\DomPDF\Facade\Pdf::class,
+    ]
 ];

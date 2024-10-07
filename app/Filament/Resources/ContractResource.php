@@ -63,9 +63,6 @@ class ContractResource extends Resource
                     ->numeric()
                     ->label('Application Number')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('application.approval_count')
-                    ->numeric()
-                    ->label('Approval Count'),
                 Tables\Columns\TextColumn::make('status.name')
                     ->badge()
                     ->icons([
