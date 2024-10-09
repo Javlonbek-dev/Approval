@@ -556,34 +556,34 @@
         <td>1</td>
         <td>Aniqlanadigan sinov ko’rsatkichlar yoki o’lchovlar uchun</td>
         <td>dona</td>
-        <td>$approval_count</td>
+        <td>{{$approval_count}}</td>
         <td>25</td>
-        <td>8 500 000</td>
-        <td>12%</td>
-        <td>1 020 000</td>
-        <td>9 520 000</td>
+        <td>{{$approval_price}}</td>
+        <td>{{$pracent_qqs}}%</td>
+        <td>{{$approval_qqs}}</td>
+        <td>{{$approval_total_price}}</td>
     </tr>
     <tr>
         <td>2</td>
         <td>Joyni o’zida baholash xarajatlarini qoplash - yo’l xarajati</td>
         <td>kishi</td>
-        <td>2</td>
-        <td>103 530</td>
-        <td>414 120</td>
-        <td>12%</td>
-        <td>49 694</td>
-        <td>463 814</td>
+        <td>{{$employee_count}}</td>
+        <td>{{$price_way}}</td>
+        <td>{{$calculate_way}}</td>
+        <td>{{$pracent_qqs}}%</td>
+        <td>{{$employee_price_qqs}}</td>
+        <td>{{$total_employee_price}}</td>
     </tr>
     <tr>
         <td></td>
         <td>- turar joy xarajatlari</td>
         <td>kun</td>
-        <td>1</td>
-        <td>340 000</td>
-        <td>680 000</td>
-        <td>12%</td>
-        <td>81 600</td>
-        <td>761 600</td>
+        <td>{{$days}}</td>
+        <td>{{$bhm}}</td>
+        <td>{{$day_price}}</td>
+        <td>{{$pracent_qqs}}%</td>
+        <td>{{$day_price_qqs}}</td>
+        <td>{{$total_day_price}}</td>
     </tr>
     <tr>
         <td></td>
@@ -594,7 +594,7 @@
         <td></td>
         <td></td>
         <td></td>
-        <td><b>10 745 400</b></td>
+        <td><b>{{$total}}</b></td>
     </tr>
 </table>
 
