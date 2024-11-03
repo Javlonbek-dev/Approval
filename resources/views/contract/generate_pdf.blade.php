@@ -508,26 +508,29 @@
 <body dir="ltr"
       style="max-width:8.2681in;margin: 0.5909in 0.5909in 0.5909in 0.9055in;">
 
-<p class="paragraph-P11"><span class="text-T1">SHARTNOMA № </span><span class="text-T1">{{$contract->contract_number}}</span></p>
+<p class="paragraph-P11"><span class="text-T1">SHARTNOMA N: </span><span class="text-T1">{{$contract->contract_number}}</span>
+</p>
 
 <p class="paragraph-P13"><span class="text-T2">Toshkent shahar                                                                                                    </span><span
-        class="text-T2">{{$formattedDate}}</span>
+            class="text-T2">{{$formattedDate}}</span>
 </p>
 
 <p class="paragraph-P14"><span class="text-T17">O‘zbekiston texnik jihatdan tartibga solish agentligining </span><span
-        class="text-T18">Texnik jihatdan tartibga solish sohasida nazorat inspeksiyasi</span><span class="text-T17"> (keyingi o‘rinlarda </span><span
-        class="text-T18">“Bajaruvchi”</span><span class="text-T17">) </span><span class="text-T6">nomidan Nizom asosida faoliyat ko‘rsatuvchi inspeksiya boshlig‘i A.A.Abduraxmanov bir tomondan, </span><span
-        class="text-T6 text-2xl" >"{{$company_name}}"</span><span class="text-T6"> (keyingi o‘rinda </span><span
-        class="text-T8">“Buyurtmachi”</span><span class="text-T6">) nomidan Nizom asosida faoliyat ko‘rsatuvchi  </span><span
-        class="text-T6">{{$company_name}}</span><span class="text-T6"> </span><span
-        class="text-T6">rahbar</span><span class="text-T6">i </span><span class="text-T6">{{$company_manager }}</span><span
-        class="text-T6"> ikkinchi tomondan ushbu shartnomani quyidagi mazmunda tuzdilar.</span></p>
+            class="text-T18">Texnik jihatdan tartibga solish sohasida nazorat inspeksiyasi</span><span class="text-T17"> (keyingi o‘rinlarda </span><span
+            class="text-T18">“Bajaruvchi”</span><span class="text-T17">) </span><span class="text-T6">nomidan Nizom asosida faoliyat ko‘rsatuvchi inspeksiya boshlig‘i A.A.Abduraxmanov bir tomondan, </span><span
+            class="text-T6 text-2xl">"{{$company_name}}"</span><span class="text-T6"> (keyingi o‘rinda </span><span
+            class="text-T8">“Buyurtmachi”</span><span
+            class="text-T6">) nomidan Nizom asosida faoliyat ko‘rsatuvchi  </span><span
+            class="text-T6">{{$company_name}}</span><span class="text-T6"> </span><span
+            class="text-T6">rahbar</span><span class="text-T6">i </span><span
+            class="text-T6">{{$company_manager }}</span><span
+            class="text-T6"> ikkinchi tomondan ushbu shartnomani quyidagi mazmunda tuzdilar.</span></p>
 <p class="paragraph-P17"> </p>
 <p class="paragraph-P12"><span class="text-T8">1. SHARTNOMA PREDMETI</span></p>
 <p class="paragraph-P20"> </p>
 <p class="paragraph-P14"><span class="text-T6">1.1. Ushbu shartnomaga asosan </span><span class="text-T8">“</span><span
-        class="text-T6">Bajaruvchi” “Buyurtmachi” ning buyurtmasida ko’rsatib o’tilgan texnik jihatdan malakaliligini ma’qullash (keying o‘rinda “Ma’qullash”) ishlarini amalga oshiradi va natijalari bo’yicha tegishli hujjatni rasmiylashtirish va “Buyurtmachi</span><span
-        class="text-T8">”</span><span class="text-T6">ga taqdim qilish yuzasidan tomonlar o’rtasidagi munosabatlarni belgilaydi. </span>
+            class="text-T6">Bajaruvchi” “Buyurtmachi” ning buyurtmasida ko’rsatib o’tilgan texnik jihatdan malakaliligini ma’qullash (keying o‘rinda “Ma’qullash”) ishlarini amalga oshiradi va natijalari bo’yicha tegishli hujjatni rasmiylashtirish va “Buyurtmachi</span><span
+            class="text-T8">”</span><span class="text-T6">ga taqdim qilish yuzasidan tomonlar o’rtasidagi munosabatlarni belgilaydi. </span>
 </p>
 <p class="paragraph-P20"> </p>
 <p class="paragraph-P12"><span class="text-T10">2. XIZMATLAR NARXI VA HISOB-KITOB TARTIBI</span></p>
@@ -601,14 +604,12 @@
 
 <p class="paragraph-P27"> </p>
 <p class="paragraph-P14"><span class="text-T11">Jami shartnoma summasi</span><span class="text-T6"> QQSni hisobga olgan holda</span><span
-        class="text-T11"> o’n million yetti yuz qirq besh ming to‘rt yuz s</span><span class="text-T6">o‘</span><span
-        class="text-T11">m</span><span class="text-T6">ni tashkil qiladi.</span><span class="text-T11"> </span></p>
-<p class="paragraph-P25"> </p>
+            class="text-T11"> {{$total_string}} so'm</span><span class="text-T6">ni tashkil qiladi.</span><span class="text-T11"> </span></p>
 <p class="paragraph-P14"><span class="text-T11">2.2</span><span class="text-T6">.</span><span class="text-T11"> Ushbu shartnoma bo’yicha hisob-kitoblar tasdiqlangan </span><span
-        class="text-T6">kalkulyatsiya</span><span class="text-T10"> </span><span class="text-T11">asosida to’lov uchun hisob-faktura bo’yicha </span><span
-        class="text-T6">“Buyurtmachi” </span><span class="text-T11">tomonidan oldindan 100 % to’lov orqali amalga oshiriladi</span><span
-        class="text-T6">. To‘lov uchun hisob-faktura berilgan kundan boshlab 15 (o‘n besh) </span><span
-        class="text-T11">ish</span><span class="text-T6"> kuni ichida amalga oshiriladi. </span></p>
+            class="text-T6">kalkulyatsiya</span><span class="text-T10"> </span><span class="text-T11">asosida to’lov uchun hisob-faktura bo’yicha </span><span
+            class="text-T6">“Buyurtmachi” </span><span class="text-T11">tomonidan oldindan 100 % to’lov orqali amalga oshiriladi</span><span
+            class="text-T6">. To‘lov uchun hisob-faktura berilgan kundan boshlab 15 (o‘n besh) </span><span
+            class="text-T11">ish</span><span class="text-T6"> kuni ichida amalga oshiriladi. </span></p>
 
 <p class="paragraph-P15"><span class="text-T6">2.</span><span class="text-T11">3</span><span class="text-T6">. Ish qiymati uzil-kesil hisoblanadi va keyinchalik qayta ko‘rib chiqilishi mumkin emas, quyidagi hollar bundan mustasno:</span>
 </p>
@@ -619,18 +620,18 @@
 <p class="paragraph-P15"><span class="text-T6">- ish hajmi “Buyurtmachi” tomonidan o‘zgartirilganda;</span></p>
 
 <p class="paragraph-P15"><span class="text-T6">- ma’qullash ob</span><span class="text-T11">y</span><span
-        class="text-T6">ektlari soni shartnomada ko‘rsatilganidan oshirilganda.</span></p>
+            class="text-T6">ektlari soni shartnomada ko‘rsatilganidan oshirilganda.</span></p>
 
 <p class="paragraph-P14"><span class="text-T6">2.</span><span class="text-T11">4</span><span class="text-T6">. Shartnomaning 2.2-bandida qayd etilgan holatlar vujudga kelganida </span><span
-        class="text-T11">“</span><span class="text-T6">Buyurtmachi</span><span class="text-T11">”</span><span
-        class="text-T6"> bilan </span><span class="text-T11">“</span><span class="text-T6">Bajaruvchi</span><span
-        class="text-T11">”</span><span class="text-T6"> o‘rtasidagi shartnomaga qo‘shimcha bitim bilan rasmiylashtiriladi.</span>
+            class="text-T11">“</span><span class="text-T6">Buyurtmachi</span><span class="text-T11">”</span><span
+            class="text-T6"> bilan </span><span class="text-T11">“</span><span class="text-T6">Bajaruvchi</span><span
+            class="text-T11">”</span><span class="text-T6"> o‘rtasidagi shartnomaga qo‘shimcha bitim bilan rasmiylashtiriladi.</span>
 </p>
 <p class="paragraph-P21"> </p>
 <p class="paragraph-P12"><span class="text-T8">3. ISHLARNI BAJARISH, TOPSHIRISH VA QABUL QILISH TARTIBI</span></p>
 <p class="paragraph-P18"> </p>
 <p class="paragraph-P14"><span class="text-T19">3.1</span><span class="text-T6">. “Buyurtmachi” ishlarni bajarish uchun “Bajaruvchi”ga </span><span
-        class="text-T9">sinov laboratoriyalarining texnik jihatdan malakaliligini ma’qullash tartib-taomilidan o‘tkazish bo‘yicha yo‘riqnomada keltirilgan hujjatlarni taqdim qiladi. “Bajaruvchi” ma’qullashga bog‘liq bo‘lgan boshqa hujjatlarni ham talab qilishi mumkin. </span>
+            class="text-T9">sinov laboratoriyalarining texnik jihatdan malakaliligini ma’qullash tartib-taomilidan o‘tkazish bo‘yicha yo‘riqnomada keltirilgan hujjatlarni taqdim qiladi. “Bajaruvchi” ma’qullashga bog‘liq bo‘lgan boshqa hujjatlarni ham talab qilishi mumkin. </span>
 </p>
 
 <p class="paragraph-P14"><span class="text-T6">3.2. “Buyurtmachi” tomonidan shartnomaning 2.1. bandiga asosan to‘lovlar amalga oshiririlib shartnomaning 3.1. bandiga asosan hujjatlar topshirilgan vaqtdan boshlab 5 ish kunida “Buyurtmachi” laboratoriyasida baholashni o‘tkazish uchun “Bajaruvchi” baholash komissiyasini shakllantiradi.</span>
@@ -711,18 +712,18 @@
 </p>
 
 <p class="paragraph-P14"><span class="text-T11">9</span><span class="text-T6">.</span><span
-        class="text-T11">4</span><span class="text-T6">. Ushbu shartomada ko‘zda tutilmagan qolgan barcha holatlar yuzasidan tomonlar O‘zbekiston Respublikasining amaldagi qonunchiligiga asosan ish ko‘radilar. </span>
+            class="text-T11">4</span><span class="text-T6">. Ushbu shartomada ko‘zda tutilmagan qolgan barcha holatlar yuzasidan tomonlar O‘zbekiston Respublikasining amaldagi qonunchiligiga asosan ish ko‘radilar. </span>
 </p>
 
 <p class="paragraph-P14"><span class="text-T11">9</span><span class="text-T6">.</span><span
-        class="text-T11">5</span><span class="text-T6">.</span><span class="text-T11"> Shartnoma bo‘yicha ish, ushbu shartnomaning 2.2. va 3.1. bandlar talablari “Buyurtmachi” tomonidan bajarilgandan so‘ng boshlanadi.</span>
+            class="text-T11">5</span><span class="text-T6">.</span><span class="text-T11"> Shartnoma bo‘yicha ish, ushbu shartnomaning 2.2. va 3.1. bandlar talablari “Buyurtmachi” tomonidan bajarilgandan so‘ng boshlanadi.</span>
 </p>
 
 <p class="paragraph-P14"><span class="text-T11">9.6. </span><span class="text-T6">“</span><span class="text-T11">Buyurtmachi</span><span
-        class="text-T6">”</span><span class="text-T11"> tomonidan </span><span
-        class="text-T6">shartnomaning </span><span class="text-T11">2</span><span class="text-T6">.</span><span
-        class="text-T11">2. va 3.1. bandlar</span><span class="text-T6">ida ko‘rsatilgan majburiyatlar 15 (o‘n besh) kalendar kun davomida </span><span
-        class="text-T11">kechiktirilgan yoki bajarilmagan taqdirda, </span><span class="text-T6">mazkur shartnoma o‘z kuchini yo‘qotadi. </span>
+            class="text-T6">”</span><span class="text-T11"> tomonidan </span><span
+            class="text-T6">shartnomaning </span><span class="text-T11">2</span><span class="text-T6">.</span><span
+            class="text-T11">2. va 3.1. bandlar</span><span class="text-T6">ida ko‘rsatilgan majburiyatlar 15 (o‘n besh) kalendar kun davomida </span><span
+            class="text-T11">kechiktirilgan yoki bajarilmagan taqdirda, </span><span class="text-T6">mazkur shartnoma o‘z kuchini yo‘qotadi. </span>
 </p>
 <p class="paragraph-P25"> </p>
 <p class="paragraph-P12"><span class="text-T10">10. TOMONLARNING YURIDIK MANZILLARI</span></p>
@@ -751,18 +752,18 @@
     </tr>
     <tr class="row-Table2_1">
         <td style="text-align:left;width:3.775in; " class="cell-Table2_A2">
-            <p class="paragraph-P5"><span class="text-T11">Yuridik manzili: Toshkent shahar, Shayxontohur tumani, Zafarobod ko'chasi 7 A uy</span>
+            <p class="paragraph-P5"><span class="text-T11">Yuridik manzili: {{$company_address}}</span>
             </p>
             <p class="paragraph-P9"> </p>
-            <p class="paragraph-P5"><span class="text-T11">Joylashgan manzili: Toshkent shahar, Olmazor tumani, Farobiy ko'chasi 333 A uy</span>
+            <p class="paragraph-P5"><span class="text-T11">Joylashgan manzili: {{$laboratory_address}}</span>
             </p>
             <p class="paragraph-P9"> </p>
-            <p class="paragraph-P5"><span class="text-T11">STIR: 306 183 891</span></p>
+            <p class="paragraph-P5"><span class="text-T11">STIR: {{$company_inn}}</span></p>
 
-            <p class="paragraph-P5"><span class="text-T11">Sh/hr: 400110860262777049400155001 Buyurtmachining G‘aznachilikdagi hisobraqami: G‘aznachilik bo‘linmasi </span>
+            <p class="paragraph-P5"><span class="text-T11">Sh/hr: {{$company_bank_vis}} Buyurtmachining G‘aznachilikdagi hisobraqami: G‘aznachilik bo‘linmasi </span>
             </p>
 
-            <p class="paragraph-P5"><span class="text-T11">STIRi: 201 122 919 </span></p>
+            <p class="paragraph-P5"><span class="text-T11">STIRi: {{$company_inn}} </span></p>
 
             <p class="paragraph-P5"><span class="text-T11">MFO: 00 014</span></p>
 
@@ -781,20 +782,8 @@
     </tr>
 </table>
 
-<p class="paragraph-P29"> </p>
-<p class="paragraph-P42"><span class="text-T14">«</span><span class="text-T14">17</span><span class="text-T14">» </span><span
-        class="text-T14">sentabr</span><span class="text-T14"> 2024 yildagi № </span><span
-        class="text-T14">01/122.2024</span><span class="text-T14"> - sonli shartnoma </span><span
-        class="text-T15">O‘</span><span class="text-T14">z R 29.08.1998 yildagi</span><span
-        class="text-T15"> “</span><span class="text-T14">X</span><span class="text-T15">o‘</span><span class="text-T14">jalik yurituvchi subyektlar</span><span
-        class="text-T15"> f</span><span class="text-T14">aoliyatining shartnomaviy-</span><span
-        class="text-T15">h</span><span class="text-T14">u</span><span class="text-T15">q</span><span
-        class="text-T14">u</span><span class="text-T15">q</span><span class="text-T14">iy bazasi t</span><span
-        class="text-T15">o‘g‘</span><span class="text-T14">risida</span><span class="text-T15">” </span><span
-        class="text-T14">gi </span><span class="text-T15">Q</span><span class="text-T14">onun</span><span
-        class="text-T15">i</span><span class="text-T14">, Fu</span><span class="text-T15">q</span><span
-        class="text-T14">arolik kodeksi va amaldagi me’yoriy </span><span class="text-T15">q</span><span
-        class="text-T14">onunchilik talablariga javob beradi.                                                                                                          </span>
+<p class="paragraph-P42"><span>{{$formattedDate}} N: </span>{{$contract->contract_number}}<span class="text-T14"> - sonli shartnoma </span><span
+        class="text-T15">O‘z R 29.08.1998 yildagi</span> “Xo‘jalik yurituvchi subyektlar fa`oliyatining shartnomaviy-huquqiy bazasi to‘g‘risida” gi Qonuni, Fuqarolik kodeksi va amaldagi me’yoriy qonunchilik talablariga javob beradi.
 </p>
 
 <p class="paragraph-P43"><span class="text-T13">Bosh yuriskonsult</span><span

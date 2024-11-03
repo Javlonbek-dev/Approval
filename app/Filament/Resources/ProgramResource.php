@@ -51,8 +51,6 @@ class ProgramResource extends Resource
                 Tables\Columns\TextColumn::make('assessment_period')
                     ->date()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('file')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('contract.id')
                     ->numeric()
                     ->sortable(),
@@ -61,7 +59,7 @@ class ProgramResource extends Resource
                         'heroicon-o-check-circle' => 'active',      // Green checkmark for 'active'
                         'heroicon-o-x-circle' => 'inactive',        // Red cross for 'inactive'
                         'heroicon-o-exclamation-circle' => 'suspended', // Warning icon for 'suspended'
-                        'heroicon-o-refresh' => 'extended',         // Circular arrow for 'extended'
+                        'heroicon-o-arrow-path' => 'extended',         // Circular arrow for 'extended'
                     ])
                     ->colors([
                         'success' => 'active',        // Green for 'active'
@@ -86,7 +84,7 @@ class ProgramResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make()
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -107,6 +105,7 @@ class ProgramResource extends Resource
         return [
             'index' => Pages\ListPrograms::route('/'),
             'create' => Pages\CreateProgram::route('/create'),
+            'view' => Pages\ViewProgram::route('/{record}'),
             'edit' => Pages\EditProgram::route('/{record}/edit'),
         ];
     }
